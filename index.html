@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jhon Jay Sico - Software Engineer</title>
+  <style>
+    /* Aurora Gradient Colors */
+    :root {
+      --aurora1: #00c3ff;
+      --aurora2: #ffff1c;
+      --aurora3: #ff61a6;
+      --aurora4: #7afcff;
+      --aurora5: #fff6e0;
+      --text-main: #f5f6fa;
+      --accent: #ff61a6;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      min-height: 100vh;
+      background: linear-gradient(120deg, var(--aurora1), var(--aurora2), var(--aurora3), var(--aurora4), var(--aurora5));
+      background-size: 400% 400%;
+      animation: auroraBG 20s ease-in-out infinite;
+      color: var(--text-main);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    @keyframes auroraBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      flex-grow: 1;
+    }
+    header {
+      background: rgba(0,0,0,0.7);
+      padding: 20px 0;
+      box-shadow: 0 2px 5px rgba(0,195,255,0.15);
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      font-weight: 600;
+      font-size: 18px;
+    }
+    nav a {
+      color: var(--text-main);
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background: rgba(255,255,255,0.12);
+      color: var(--accent);
+    }
+    section {
+      margin-bottom: 60px;
+    }
+    h1, h2 {
+      margin-bottom: 15px;
+      color: var(--accent);
+    }
+    p {
+      margin-bottom: 15px;
+      color: var(--text-main);
+    }
+    /* Home */
+    #home {
+      background: rgba(0,0,0,0.6);
+      padding: 60px 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,195,255,0.08);
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+    #home img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--accent);
+      flex-shrink: 0;
+      background: #fff;
+    }
+    #home-text {
+      flex: 1;
+    }
+    #home h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    #home p {
+      font-size: 1.2rem;
+      color: #f2e9ff;
+    }
+    /* About */
+    #about {
+      background: rgba(0,0,0,0.6);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,195,255,0.08);
+    }
+    /* Skills */
+    #skills ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    #skills li {
+      margin-bottom: 15px;
+    }
+    .skill-label {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      color: #7afcff;
+      margin-bottom: 5px;
+    }
+    .skill-bar {
+      background: #222;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 20px;
+    }
+    .skill-progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--aurora1), var(--aurora3));
+      border-radius: 10px 0 0 10px;
+      transition: width 1s;
+    }
+    /* Projects */
+    #projects .project-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 20px;
+    }
+    .project {
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,195,255,0.10);
+      transition: transform 0.3s;
+    }
+    .project:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 8px 20px rgba(0,195,255,0.22);
+    }
+    .project h3 {
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+    .project p {
+      font-size: 0.98rem;
+      color: var(--text-main);
+    }
+    .project a {
+      display: inline-block;
+      margin-top: 10px;
+      color: var(--aurora1);
+      font-weight: 600;
+    }
+    .project-img {
+      width: 100%;
+      max-height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 8px rgba(0,195,255,0.15);
+      display: block;
+    }
+    /* Contact */
+    #contact > p {
+      max-width: 900px;
+      margin: 0 auto 30px auto;
+      color: var(--text-main);
+      text-align: center;
+    }
+    #contact .contact-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+    }
+    #contact-info {
+      flex: 1 1 300px;
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,195,255,0.08);
+      color: var(--aurora1);
+    }
+    #contact-info h3 {
+      margin-bottom: 15px;
+      color: var(--accent);
+    }
+    #contact-info p {
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    #contact-info a {
+      color: var(--accent);
+    }
+    #contact form {
+      flex: 1 1 400px;
+      background: rgba(0,0,0,0.6);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,195,255,0.08);
+    }
+    #contact label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+    #contact input, #contact textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 2px solid var(--aurora3);
+      border-radius: 5px;
+      font-size: 1rem;
+      background-color: #111;
+      color: var(--text-main);
+      transition: border-color 0.3s;
+    }
+    #contact input:focus, #contact textarea:focus {
+      border-color: var(--aurora1);
+      outline: none;
+    }
+    #contact button {
+      background: linear-gradient(90deg, var(--aurora1), var(--aurora3));
+      color: #000;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    #contact button:hover {
+      background: linear-gradient(90deg, var(--aurora3), var(--aurora1));
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #222;
+      font-size: 0.95rem;
+      border-top: 1px solid var(--aurora3);
+      margin-top: 40px;
+      background: rgba(255,255,255,0.10);
+    }
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+      #home {
+        flex-direction: column;
+        text-align: center;
+      }
+      #home img {
+        margin: 0 auto 20px auto;
+      }
+      #contact .contact-wrapper {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#skills">My Skills</a>
+      <a href="#projects">My Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- Home -->
+    <section id="home">
+      <img src="JHONJAY.jfif" alt="Jhon Jay Sico" />
+      <div id="home-text">
+        <h1>Hello, I'm Jhon Jay Sico</h1>
+        <p><strong>SOFTWARE ENGINEER</strong></p>
+      </div>
+    </section>
+    <!-- About Me -->
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I am a passionate software engineer from Tingub, Mandaue City. I build scalable, efficient, and user-friendly software solutions. I love solving real-world problems with code and collaborating with teams to deliver impactful products.
+      </p>
+    </section>
+
+    <!-- My Skills -->
+    <section id="skills">
+      <h2>My Skills</h2>
+      <ul>
+        <li>
+          <div class="skill-label">JavaScript <span>80%</span></div>
+          <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+        </li>
+        <li>
+          <div class="skill-label">React.js <span>75%</span></div>
+          <div class="skill-bar"><div class="skill-progress" style="width: 75%;"></div></div>
+        </li>
+        <li>
+          <div class="skill-label">Node.js <span>70%</span></div>
+          <div class="skill-bar"><div class="skill-progress" style="width: 70%;"></div></div>
+        </li>
+        <li>
+          <div class="skill-label">Python <span>65%</span></div>
+          <div class="skill-bar"><div class="skill-progress" style="width: 65%;"></div></div>
+        </li>
+        <li>
+          <div class="skill-label">SQL <span>60%</span></div>
+          <div class="skill-bar"><div class="skill-progress" style="width: 60%;"></div></div>
+        </li>
+        <li>
+          <div class="skill-label">Cloud (Vercel, AWS) <span>55%</span></div>
+          <div class="skill-bar"><div class="skill-progress" style="width: 55%;"></div></div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- My Projects -->
+    <section id="projects">
+      <h2>My Projects</h2>
+      <div class="project-list">
+        <div class="project">
+          <img class="project-img" src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Task Manager App Screenshot" />
+          <h3>Aurora Task Manager</h3>
+          <p>
+            A full-stack productivity app to manage tasks, deadlines, and team collaboration. Built with React, Node.js, and deployed on Vercel. Features real-time updates, notifications, and a beautiful aurora-inspired UI.
+          </p>
+          <a href="https://github.com/jhonjaysico/aurora-task-manager" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+        <div class="project">
+          <img class="project-img" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="API Platform Screenshot" />
+          <h3>API Platform</h3>
+          <p>
+            RESTful API platform for rapid prototyping and integration. Includes authentication, documentation, and scalable cloud deployment.
+          </p>
+          <a href="https://github.com/jhonjaysico/api-platform" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+        <div class="project">
+          <img class="project-img" src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Portfolio Website Screenshot" />
+          <h3>Personal Portfolio</h3>
+          <p>
+            My own responsive portfolio site (this one!) built with HTML, CSS, and deployed on Vercel. Showcases my projects, skills, and contact info.
+          </p>
+          <a href="mailto:jhonjaysico@gmail.com">Contact Me</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <p>You can reach me through the form below or via the following contact details:</p>
+      <div class="contact-wrapper">
+        <div id="contact-info">
+          <h3>Contact Information</h3>
+          <p><strong>Email:</strong> <a href="mailto:jhonjaysico@gmail.com">jhonjaysico@gmail.com</a></p>
+          <p><strong>Phone:</strong> <a href="tel:09082323817">09082323817</a></p>
+          <p><strong>Location:</strong> Tingub, Mandaue City</p>
+        </div>
+        <form action="mailto:jhonjaysico@gmail.com" method="post" enctype="text/plain">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Your email" required />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </section>
+  </div>
+  <footer>
+    &copy; 2025 Jhon Jay Sico. All rights reserved.
+  </footer>
+</body>
+</html>
